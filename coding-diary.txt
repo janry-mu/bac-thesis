@@ -1,0 +1,4 @@
+1.1. Prompt:
+    https://biodivine.fi.muni.cz/docs/aeon-py/latest/biodivine_aeon.html
+    pot?ebuju pomoc? této knihovny p?evést .sbml soubor na .aeon soubor
+1.2. obsah sbml-to-aeon.py
