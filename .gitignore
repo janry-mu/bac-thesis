@@ -1,5 +1,5 @@
 main/
 casq/
 fcasq/
-networks/
+test/
 .env
