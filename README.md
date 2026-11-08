@@ -1,1 +1,1 @@
-"# Bachelor Thesis - Jan Rìznar" 
+"# Bachelor Thesis - Jan Ryznar" 
