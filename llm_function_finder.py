@@ -13,16 +13,23 @@ TASK = """\
 
 def gemini(node_name: str, function: str, task=TASK):
     load_dotenv()
-
     client = genai.Client()
 
-    interaction = client.interactions.create(
-        model="gemini-3.8-flash",
-        input=f"""\
-                Context: {task}\n
-                Node: {node_name}\n
-                Function: {function}
-            """
-    )
+    try:
+        interaction = client.interactions.create(
+            model="gemini-3.8-flash",
+            input=f"""\
+                    Context: {task}\n
+                    Node: {node_name}\n
+                    Function: {function}
+                """
+        )
+        
+        if interaction.output_text is None:
+            return None
 
-    return interaction.output_text
+        return interaction.output_text
+
+    except Exception as e:
+        print(f"Gemini chyba: {e}")
+        return None
