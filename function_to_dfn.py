@@ -1,7 +1,6 @@
 from sympy import symbols
 from sympy.parsing.sympy_parser import parse_expr
-from sympy.logic.boolalg import to_dnf, Not
-from itertools import product
+from sympy.logic.boolalg import to_dnf
 
 def function_to_dfn(function: str):
     _, term = function.split(':')
