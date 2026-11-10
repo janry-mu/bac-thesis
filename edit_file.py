@@ -41,7 +41,7 @@ def find_PSFs(file: str,
 
     for line in lines:
         if line != "" and line[0] == function_symbol and re.search(function_pattern, line):
-            node_name, term = line.split(':')
-            result[node_name] = term
+            node_name, function = line.split(':')
+            result[node_name] = function
 
     return result
