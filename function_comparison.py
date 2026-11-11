@@ -77,6 +77,9 @@ def compare_casqs(sbgn_path: str,
         function, ref = functions
         llm_decided_function = gemini(node_name, function)
         if llm_decided_function is not None and not compare_functions(llm_decided_function, ref):
-            print(f"Node: {node_name}\nFunction: {ref}\nLLM result: {llm_decided_function}\n---")
+            print(f"Node: {node_name}",
+                  f"Function: {ref}",
+                  f"LLM result: {llm_decided_function}",
+                  f"---", sep="\n")
 
 compare_casqs("test\\network.sbgn", "test\\network.xml", "casq_comparison\\casq", "casq_comparison\\fcasq")
