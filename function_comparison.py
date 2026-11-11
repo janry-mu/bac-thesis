@@ -19,11 +19,13 @@ def function_to_dfn(function: str):
 
     return str(sympy_function).replace('~', '!')
 
+
 def compare_functions(f1: str, f2: str) -> bool:
     dfn1 = function_to_dfn(f1)
     dfn2 = function_to_dfn(f2)
 
     return dfn1 == dfn2
+
 
 def find_PSFs(psf_file: str,
               ref_file: str,
@@ -49,11 +51,13 @@ def find_PSFs(psf_file: str,
 
     return result
 
+
 def run_casq(map_path: str, venv_path: str, output_path: str, option=""):
     sbp = [venv_path, map_path, output_path] if option == "" else [venv_path, option, map_path, output_path]
     subprocess.run(
         sbp
     )
+
 
 def compare_casqs(sbgn_path: str,
                   cd_path: str,
@@ -73,9 +77,6 @@ def compare_casqs(sbgn_path: str,
         function, ref = functions
         llm_decided_function = gemini(node_name, function)
         if llm_decided_function is not None and not compare_functions(llm_decided_function, ref):
-            print("Node:" + node_name)
-            print("Function: " + ref)
-            print("LLM result: " + llm_decided_function)
-            print("---")
+            print(f"Node: {node_name}\nFunction: {ref}\nLLM result: {llm_decided_function}\n---")
 
 compare_casqs("test\\network.sbgn", "test\\network.xml", "casq_comparison\\casq", "casq_comparison\\fcasq")
